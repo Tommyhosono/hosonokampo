@@ -246,6 +246,9 @@
     }
 
     .ticker-item {
+      text-decoration: none;
+      color: inherit;
+      display: inline-block;
       white-space: nowrap;
       padding: 0 48px;
       font-family: 'Shippori Mincho', serif;
@@ -253,6 +256,12 @@
       color: var(--deep);
       letter-spacing: 0.12em;
       opacity: 0.9;
+      transition: opacity 0.2s;
+    }
+
+    .ticker-item:hover {
+      opacity: 0.7;
+      text-decoration: none;
     }
 
     .ticker-item::after {
@@ -787,18 +796,20 @@
 
   <section class="ticker-wrap" aria-label="診療日誌">
     <div class="ticker-track">
-      <span class="ticker-item">当帰芍薬散と桂枝茯苓丸の違いについて</span>
-      <span class="ticker-item">春の養生法</span>
-      <span class="ticker-item">冷え性と漢方～体を温める考え方</span>
-      <span class="ticker-item">不妊治療と漢方の役割</span>
-      <span class="ticker-item">胃腸の不調と六君子湯</span>
-      <span class="ticker-item">アトピー性皮膚炎の漢方的アプローチ</span>
-      <span class="ticker-item">当帰芍薬散と桂枝茯苓丸の違いについて</span>
-      <span class="ticker-item">春の養生法</span>
-      <span class="ticker-item">冷え性と漢方～体を温める考え方</span>
-      <span class="ticker-item">不妊治療と漢方の役割</span>
-      <span class="ticker-item">胃腸の不調と六君子湯</span>
-      <span class="ticker-item">アトピー性皮膚炎の漢方的アプローチ</span>
+      <a href="https://www.hosonokampo.jp/blog/2023/02/14/%e5%a5%b3%e6%80%a7%e7%b3%bb%e3%81%ae%e6%9c%89%e5%90%8d%e5%87%a6%e6%96%b9%e3%80%81%e5%bd%93%e5%b8%b0%e8%8a%8d%e8%96%ac%e6%95%a3%e3%81%8b%e5%8a%a0%e5%91%b3%e9%80%8d%e9%81%99%e6%95%a3%e3%81%a9%e3%81%a1/" class="ticker-item">女性系の有名処方、当帰芍薬散か加味逍遙散…</a>
+      <a href="https://www.hosonokampo.jp/blog/2023/09/05/%e6%a1%82%e6%9e%9d%e8%8c%82%e8%8b%93%e4%b8%b8%e3%81%a8%e5%bd%93%e5%b8%b0%e8%8a%8d%e8%96%ac%e6%95%a3%e3%81%ae%e9%81%95%e3%81%84%e3%80%81%e5%89%8d%e5%9b%9e%e3%81%ae%e8%a8%98%e4%ba%8b%e3%81%ab%e5%8f%8d/" class="ticker-item">桂枝茯苓丸と当帰芍薬散の違い、前回の記事に…</a>
+      <a href="https://www.hosonokampo.jp/blog/2022/07/29/%e3%81%82%e3%81%ae%e5%bd%93%e5%b8%b0%e8%8a%8d%e8%96%ac%e6%95%a3%ef%bc%88%e3%81%a8%e3%81%86%e3%81%8d%e3%81%97%e3%82%83%e3%81%8f%e3%82%84%e3%81%8f%e3%81%95%e3%82%93%ef%bc%89%e3%82%82%e4%ba%94%e8%8b%93/" class="ticker-item">あの当帰芍薬散（とうきしゃくやくさん）も五苓散…</a>
+      <a href="https://www.hosonokampo.jp/blog/2023/10/03/%e4%b8%8b%e8%85%b9%e9%83%a8%e3%81%8c%e3%83%81%e3%82%af%e3%83%81%e3%82%af%e7%97%9b%e3%81%84%ef%bc%81%ef%bc%81%e6%86%a9%e5%ae%a4%e7%82%8e%e3%80%81%e8%99%ab%e5%9e%82%e7%82%8e%e3%81%ab%e3%82%82%e5%8a%b9/" class="ticker-item">下腹部がチクチク痛い！！憩室炎、虫垂炎にも…</a>
+      <a href="https://www.hosonokampo.jp/blog/2025/05/20/%e4%ba%ba%e5%8f%82%e6%b9%af%e3%81%a8%e7%b4%9b%e3%82%89%e3%82%8f%e3%81%97%e3%81%84%e3%83%a1%e3%82%b8%e3%83%a3%e3%83%bc%e5%87%a6%e6%96%b9%e3%81%ae%e4%ba%ba%e5%8f%82%e9%a4%8a%e6%a0%84%e6%b9%af%e3%81%a8/" class="ticker-item">人参湯と紛らわしいメジャー処方の人参養栄湯…</a>
+      <a href="https://www.hosonokampo.jp/blog/2023/05/16/%e3%82%a2%e3%83%88%e3%83%94%e3%83%bc%e6%80%a7%e7%9a%ae%e8%86%9a%e7%82%8e%e3%81%ae%e3%83%a1%e3%82%b8%e3%83%a3%e3%83%bc%e6%bc%a2%e6%96%b9%e3%80%81%e6%9c%80%e5%88%9d%e3%81%ab%e5%87%a6%e6%96%b9%e3%81%95/" class="ticker-item">アトピー性皮膚炎のメジャー漢方、最初に処方される…</a>
+      <a href="https://www.hosonokampo.jp/blog/2023/05/02/%e6%a9%9f%e8%83%bd%e6%80%a7%e3%83%87%e3%82%a3%e3%82%b9%e3%83%9e%e3%83%97%e3%82%b7%e3%82%a2%ef%bc%88%e8%83%83%e8%85%b8%e3%81%ae%e6%a9%9f%e8%83%bd%e9%9a%9c%e5%ae%b3%ef%bc%89%e3%81%ae%e6%bc%a2%e6%96%b9-2/" class="ticker-item">機能性ディスペプシア（胃腸の機能障害）の漢方…</a>
+      <a href="https://www.hosonokampo.jp/blog/2023/02/14/%e5%a5%b3%e6%80%a7%e7%b3%bb%e3%81%ae%e6%9c%89%e5%90%8d%e5%87%a6%e6%96%b9%e3%80%81%e5%bd%93%e5%b8%b0%e8%8a%8d%e8%96%ac%e6%95%a3%e3%81%8b%e5%8a%a0%e5%91%b3%e9%80%8d%e9%81%99%e6%95%a3%e3%81%a9%e3%81%a1/" class="ticker-item">女性系の有名処方、当帰芍薬散か加味逍遙散…</a>
+      <a href="https://www.hosonokampo.jp/blog/2023/09/05/%e6%a1%82%e6%9e%9d%e8%8c%82%e8%8b%93%e4%b8%b8%e3%81%a8%e5%bd%93%e5%b8%b0%e8%8a%8d%e8%96%ac%e6%95%a3%e3%81%ae%e9%81%95%e3%81%84%e3%80%81%e5%89%8d%e5%9b%9e%e3%81%ae%e8%a8%98%e4%ba%8b%e3%81%ab%e5%8f%8d/" class="ticker-item">桂枝茯苓丸と当帰芍薬散の違い、前回の記事に…</a>
+      <a href="https://www.hosonokampo.jp/blog/2022/07/29/%e3%81%82%e3%81%ae%e5%bd%93%e5%b8%b0%e8%8a%8d%e8%96%ac%e6%95%a3%ef%bc%88%e3%81%a8%e3%81%86%e3%81%8d%e3%81%97%e3%82%83%e3%81%8f%e3%82%84%e3%81%8f%e3%81%95%e3%82%93%ef%bc%89%e3%82%82%e4%ba%94%e8%8b%93/" class="ticker-item">あの当帰芍薬散（とうきしゃくやくさん）も五苓散…</a>
+      <a href="https://www.hosonokampo.jp/blog/2023/10/03/%e4%b8%8b%e8%85%b9%e9%83%a8%e3%81%8c%e3%83%81%e3%82%af%e3%83%81%e3%82%af%e7%97%9b%e3%81%84%ef%bc%81%ef%bc%81%e6%86%a9%e5%ae%a4%e7%82%8e%e3%80%81%e8%99%ab%e5%9e%82%e7%82%8e%e3%81%ab%e3%82%82%e5%8a%b9/" class="ticker-item">下腹部がチクチク痛い！！憩室炎、虫垂炎にも…</a>
+      <a href="https://www.hosonokampo.jp/blog/2025/05/20/%e4%ba%ba%e5%8f%82%e6%b9%af%e3%81%a8%e7%b4%9b%e3%82%89%e3%82%8f%e3%81%97%e3%81%84%e3%83%a1%e3%82%b8%e3%83%a3%e3%83%bc%e5%87%a6%e6%96%b9%e3%81%ae%e4%ba%ba%e5%8f%82%e9%a4%8a%e6%a0%84%e6%b9%af%e3%81%a8/" class="ticker-item">人参湯と紛らわしいメジャー処方の人参養栄湯…</a>
+      <a href="https://www.hosonokampo.jp/blog/2023/05/16/%e3%82%a2%e3%83%88%e3%83%94%e3%83%bc%e6%80%a7%e7%9a%ae%e8%86%9a%e7%82%8e%e3%81%ae%e3%83%a1%e3%82%b8%e3%83%a3%e3%83%bc%e6%bc%a2%e6%96%b9%e3%80%81%e6%9c%80%e5%88%9d%e3%81%ab%e5%87%a6%e6%96%b9%e3%81%95/" class="ticker-item">アトピー性皮膚炎のメジャー漢方、最初に処方される…</a>
+      <a href="https://www.hosonokampo.jp/blog/2023/05/02/%e6%a9%9f%e8%83%bd%e6%80%a7%e3%83%87%e3%82%a3%e3%82%b9%e3%83%9e%e3%83%97%e3%82%b7%e3%82%a2%ef%bc%88%e8%83%83%e8%85%b8%e3%81%ae%e6%a9%9f%e8%83%bd%e9%9a%9c%e5%ae%b3%ef%bc%89%e3%81%ae%e6%bc%a2%e6%96%b9-2/" class="ticker-item">機能性ディスペプシア（胃腸の機能障害）の漢方…</a>
     </div>
   </section>
 
