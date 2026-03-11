@@ -86,7 +86,10 @@
       --deep: #2c2318;
     }
 
-    html { scroll-behavior: smooth; }
+    html {
+      -webkit-text-size-adjust: 100%;
+      scroll-behavior: smooth;
+    }
 
     body {
       margin: 0;
@@ -246,6 +249,7 @@
     }
 
     .ticker-item {
+      -webkit-text-size-adjust: none;
       text-decoration: none;
       color: inherit;
       display: inline-block;
@@ -733,6 +737,7 @@
       }
 
       .ticker-item {
+        -webkit-text-size-adjust: none;
         font-size: 11px !important;
         padding: 0 24px;
       }
