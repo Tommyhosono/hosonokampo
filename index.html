@@ -62,8 +62,8 @@
       border: none !important;
     }
 
-    /* ヘッダー・フッター・青い線を物理的に抹殺 */
-    header, footer, .page-header, .breadcrumb, .vk-mobile-nav-menu-btn {
+    /* ヘッダー・フッター・青い線を物理的に抹殺（※カスタムfooterは除外） */
+    header:not(.nav), .site-footer, .page-header, .breadcrumb, .vk-mobile-nav-menu-btn {
       display: none !important;
       height: 0 !important;
       visibility: hidden !important;
@@ -78,11 +78,11 @@
     /* 1. リセット */
     *, *::before, *::after { box-sizing: border-box; }
 
-    /* 2. 基本デザイン */
+    /* 2. 基本デザイン（アイボリー・真鍮ゴールド） */
     :root {
-      --gold: #917b46;
-      --ivory: #f2ede4;
-      --cream: #f2ede4;
+      --gold: #b8a47e;
+      --ivory: #fdfcf0;
+      --cream: #fdfcf0;
       --deep: #2c2318;
     }
 
@@ -115,7 +115,7 @@
       height: 80px;
       z-index: 9999;
       background: var(--ivory);
-      border-bottom: 1px solid rgba(145, 123, 70, 0.4);
+      border-bottom: 1px solid rgba(184, 164, 126, 0.5);
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -226,6 +226,46 @@
       }
     }
 
+    /* 4.5. 診療日誌Ticker（真鍮の輝き） */
+    .ticker-wrap {
+      background: var(--ivory);
+      border-top: 1px solid rgba(184, 164, 126, 0.3);
+      border-bottom: 1px solid rgba(184, 164, 126, 0.3);
+      overflow: hidden;
+      padding: 14px 0;
+    }
+
+    .ticker-track {
+      display: flex;
+      width: max-content;
+      animation: ticker-scroll 40s linear infinite;
+    }
+
+    .ticker-track:hover {
+      animation-play-state: paused;
+    }
+
+    .ticker-item {
+      white-space: nowrap;
+      padding: 0 48px;
+      font-family: 'Shippori Mincho', serif;
+      font-size: 0.95rem;
+      color: var(--deep);
+      letter-spacing: 0.12em;
+      opacity: 0.9;
+    }
+
+    .ticker-item::after {
+      content: "　◆　";
+      color: rgba(184, 164, 126, 0.6);
+      font-size: 0.6em;
+    }
+
+    @keyframes ticker-scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
     /* 5. メッセージセクション */
     .msg-section {
       padding: 80px 32px;
@@ -233,7 +273,7 @@
       background: var(--cream);
       max-width: 1200px;
       margin: 0 auto;
-      border-bottom: 1px solid rgba(145, 123, 70, 0.4);
+      border-bottom: 1px solid rgba(184, 164, 126, 0.35);
     }
 
     .msg-section h3 {
@@ -277,7 +317,7 @@
 
     .card {
       background: #fff;
-      border: 1px solid rgba(145, 123, 70, 0.4);
+      border: 1px solid rgba(184, 164, 126, 0.4);
       padding: 32px;
       text-align: center;
       color: var(--deep);
@@ -325,7 +365,7 @@
       flex-wrap: wrap;
       margin-top: 40px;
       padding-top: 32px;
-      border-top: 1px solid rgba(145, 123, 70, 0.4);
+      border-top: 1px solid rgba(184, 164, 126, 0.35);
     }
 
     .mini-nav a {
@@ -341,11 +381,62 @@
       text-decoration: none;
     }
 
+    /* 7.5. お知らせ欄（一筆箋風） */
+    .info-section {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 80px 32px;
+    }
+
+    .info-paper {
+      background: linear-gradient(180deg, #fffef9 0%, #fdfcf7 100%);
+      border: 1px solid rgba(184, 164, 126, 0.35);
+      padding: 56px 64px 64px;
+      box-shadow: 0 2px 24px rgba(44, 35, 24, 0.04);
+      position: relative;
+    }
+
+    .info-paper::before {
+      content: "";
+      position: absolute;
+      top: 24px;
+      left: 32px;
+      right: 32px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(184, 164, 126, 0.2), transparent);
+    }
+
+    .info-label {
+      font-family: 'Shippori Mincho', serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.3em;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+
+    .info-title {
+      font-family: 'Shippori Mincho', serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--deep);
+      margin-bottom: 24px;
+      letter-spacing: 0.05em;
+      line-height: 1.7;
+    }
+
+    .info-body {
+      font-family: 'Shippori Mincho', serif;
+      font-size: 0.95rem;
+      color: #4a4238;
+      line-height: 2.2;
+      letter-spacing: 0.04em;
+    }
+
     /* 8. 歴史セクション */
     .history-section {
       padding: 80px 32px;
       text-align: center;
-      background: #efe9df;
+      background: #f8f6f0;
       max-width: 1200px;
       margin: 0 auto;
     }
@@ -446,6 +537,78 @@
       color: #fff;
     }
 
+    /* 9.5. アクセス・地図 */
+    .access-section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 80px 32px 100px;
+      background: var(--ivory);
+    }
+
+    .access-inner {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    .access-text {
+      padding-top: 8px;
+    }
+
+    .access-heading {
+      font-family: 'Shippori Mincho', serif;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      color: var(--gold);
+      margin-bottom: 24px;
+    }
+
+    .access-directions {
+      font-family: 'Shippori Mincho', serif;
+      font-size: 1.05rem;
+      line-height: 2.1;
+      color: var(--deep);
+      letter-spacing: 0.05em;
+    }
+
+    .access-directions p {
+      margin: 0 0 16px;
+    }
+
+    .access-directions strong {
+      color: var(--gold);
+      font-weight: 700;
+    }
+
+    .access-address {
+      margin-top: 24px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(184, 164, 126, 0.3);
+      font-size: 0.95rem;
+      color: #5a5148;
+    }
+
+    .access-map-wrap {
+      position: relative;
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 4px 32px rgba(44, 35, 24, 0.08);
+    }
+
+    .access-map-wrap iframe {
+      display: block;
+      width: 100%;
+      height: 360px;
+      border: none;
+      filter: grayscale(0.5) sepia(0.2);
+    }
+
+    .access-map-wrap iframe:hover {
+      filter: grayscale(0.3) sepia(0.1);
+    }
+
     /* 10. フッター */
     .footer {
       padding: 40px;
@@ -513,7 +676,7 @@
         justify-content: center;
         padding-top: 10px;
         margin-top: 4px;
-        border-top: 1px solid rgba(145, 123, 70, 0.4);
+        border-top: 1px solid rgba(184, 164, 126, 0.5);
       }
 
       .nav-tel {
@@ -535,6 +698,18 @@
 
       .box-section {
         padding: 60px 20px;
+      }
+
+      .info-section { padding: 60px 20px; }
+      .info-paper { padding: 40px 28px 48px; }
+
+      .access-inner {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      .access-map-wrap iframe {
+        height: 280px;
       }
 
       .cta-btns {
@@ -589,6 +764,23 @@
     <p>当診療所では、<strong>医師による診察</strong>を軸に、2名の漢方専門薬剤師が常駐する体制を整えております。お薬のことはもちろん、<strong>日常のちょっとした体調の変化</strong>や「こんなこと聞いてもいいのかしら」と思うような些細な不安も、どうぞお気軽にご相談ください。</p>
   </section>
 
+  <section class="ticker-wrap" aria-label="診療日誌">
+    <div class="ticker-track">
+      <span class="ticker-item">当帰芍薬散と桂枝茯苓丸の違いについて</span>
+      <span class="ticker-item">春の養生法</span>
+      <span class="ticker-item">冷え性と漢方～体を温める考え方</span>
+      <span class="ticker-item">不妊治療と漢方の役割</span>
+      <span class="ticker-item">胃腸の不調と六君子湯</span>
+      <span class="ticker-item">アトピー性皮膚炎の漢方的アプローチ</span>
+      <span class="ticker-item">当帰芍薬散と桂枝茯苓丸の違いについて</span>
+      <span class="ticker-item">春の養生法</span>
+      <span class="ticker-item">冷え性と漢方～体を温める考え方</span>
+      <span class="ticker-item">不妊治療と漢方の役割</span>
+      <span class="ticker-item">胃腸の不調と六君子湯</span>
+      <span class="ticker-item">アトピー性皮膚炎の漢方的アプローチ</span>
+    </div>
+  </section>
+
   <section class="box-section">
     <h2 class="section-title"><span class="title-gold">細野漢方診療所</span>で、できること</h2>
     <div class="grid">
@@ -608,6 +800,14 @@
       <a href="https://www.hosonokampo.jp/about/media/">メディア掲載</a>
       <a href="https://www.hosonokampo.jp/about/number/">来院実績</a>
     </nav>
+  </section>
+
+  <section class="info-section">
+    <div class="info-paper">
+      <p class="info-label">INFORMATION</p>
+      <h3 class="info-title">【重要】診療時間変更のお知らせ</h3>
+      <p class="info-body">平素より当診療所をご利用いただき、誠にありがとうございます。<br>〇月〇日より診療時間を一部変更いたします。ご来院の際はお手数ですが、当ページまたはお電話にて最新の診療日時をご確認くださいますようお願い申し上げます。</p>
+    </div>
   </section>
 
   <section class="history-section">
@@ -631,6 +831,24 @@
       <a href="https://lin.ee/glFn7qu" class="btn btn-line" target="_blank" rel="noopener noreferrer">📲 LINEでかんたん予約</a>
     </div>
     <p style="margin-top: 32px; font-size: 0.9rem; opacity: 0.9;">受付時間：火・木・金 10:00〜18:00 ／ 土 9:30〜16:30<br>東京都千代田区有楽町1-2-14 紫ビル4階</p>
+  </section>
+
+  <section class="access-section">
+    <div class="access-inner">
+      <div class="access-text">
+        <h3 class="access-heading">ACCESS</h3>
+        <div class="access-directions">
+          <p><strong>東京メトロ銀座線</strong> 銀座駅 B3番出口より 徒歩約5分</p>
+          <p><strong>JR山手線</strong> 有楽町駅 京橋口より 徒歩約8分</p>
+          <p><strong>東京メトロ日比谷線</strong> 日比谷駅 A1番出口より 徒歩約7分</p>
+          <p>紫ビル4階にエレベーターでお上がりいただき、正面が受付です。</p>
+        </div>
+        <p class="access-address">〒100-0006 東京都千代田区有楽町1-2-14 紫ビル4階</p>
+      </div>
+      <div class="access-map-wrap">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3240.89!2d139.760!3d35.674!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188bfbd89f700b%3A0x277e49ba33ed038!2z5p2x5Lqs6Zu344O25bKh6aeF!5e0!3m2!1sja!2sjp!4v1640000000" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="細野漢方診療所への地図"></iframe>
+      </div>
+    </div>
   </section>
 
   <footer class="footer">
