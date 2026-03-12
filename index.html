@@ -8,915 +8,166 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;700&family=Noto+Serif+JP:wght@400;500&display=swap" rel="stylesheet">
   <style>
-    /* === Lightning 強制消去（設定無視・必ず効く） === */
-    #masthead, #site-header, .site-header, .site-header-container, .page-header,
-    .breadcrumb, .breadcrumb-section, .sub-section, .vk-mobile-nav,
-    .entry-header, .site-footer, .copySection, .site-footer-copyright,
-    .entry-title, h1.entry-title, .page-title, .site-title, .mainSection-title,
-    .global-nav, .gMenu, .nav-container, #vk-mobile-nav,
-    .siteHeader, .header-logo, .header-logo-in,
-    .header-section, .header-lightning, .header-container,
-    .veu_siteFooter, .veu_siteHeader,
-    [id*="masthead"], [class*="site-header"], [class*="site-footer"],
-    [class*="breadcrumb"], [class*="global-nav"], [class*="gMenu"] {
-      display: none !important;
-      height: 0 !important;
-      min-height: 0 !important;
-      margin: 0 !important;
-      padding: 0 !important;
-      overflow: hidden !important;
-      visibility: hidden !important;
-      position: absolute !important;
-      left: -9999px !important;
-      pointer-events: none !important;
-      border: none !important;
-    }
-
-    /* Lightning のメイン枠・余白・背景を完全リセット */
-    #main, .mainSection, .site-main, .mainSection-inner,
-    .entry-content, .container, .site-body, .contents, .siteContent,
-    .col-main, .main_content, .post, .page,
-    .vk_section, .vk_content, [class*="mainSection"], [class*="entry-content"] {
-      padding: 0 !important;
-      margin: 0 !important;
-      max-width: 100% !important;
-      width: 100% !important;
-      background: none !important;
-      border: none !important;
-      box-shadow: none !important;
-    }
-
-    /* body / html の余白も殺す */
-    body.page, body.single, html body {
-      padding-top: 0 !important;
-      padding-bottom: 0 !important;
-    }
-
-    /* Lightningの「檻」を根こそぎ破壊して透明にする */
-    html, body, #wrapper, #outer-sidebar, .siteContent, .container, .mainSection {
-      background-color: #fcfaf2 !important;
-      padding: 0 !important;
-      margin: 0 !important;
-      width: 100% !important;
-      max-width: 100% !important;
-      border: none !important;
-    }
-
-    /* ヘッダー・フッター・青い線を物理的に抹殺（※カスタムfooterは除外） */
-    header:not(.nav), .site-footer, .page-header, .breadcrumb, .vk-mobile-nav-menu-btn {
-      display: none !important;
-      height: 0 !important;
-      visibility: hidden !important;
-    }
-
-    /* コンテンツを囲う余計な余白を殺す */
-    #content, #main {
-      padding-top: 0 !important;
-      margin-top: 0 !important;
-    }
-
-    /* 1. リセット */
-    *, *::before, *::after { box-sizing: border-box; }
-
-    /* 2. 静寂のファーストビュー */
-    .first-view {
-      margin-top: 80px;
-      padding: 120px 24px;
-      background: var(--ivory);
-      text-align: center;
-      font-family: "Yu Mincho", "Yu Mincho", "Hiragino Mincho ProN", "Noto Serif JP", "Shippori Mincho", serif;
-      font-size: 1.15rem;
-      letter-spacing: 0.15em;
-      line-height: 2.5;
-      color: var(--deep);
-    }
-
-    .first-view-line {
-      display: block;
-    }
-
-    /* 2.5. 視覚の奔流（写真スライドプレースホルダー） */
-    .visual-flow {
-      width: 100%;
-      min-height: 420px;
-      background: rgba(44, 35, 24, 0.06);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #8a7f72;
-      font-family: "Yu Mincho", "Yu Mincho", "Hiragino Mincho ProN", serif;
-      font-size: 0.9rem;
-      letter-spacing: 0.2em;
-    }
-
-    /* 3. 基本デザイン（アイボリー・真鍮ゴールド） */
-    :root {
-      --gold: #b8a47e;
-      --ivory: #fdfcf0;
-      --cream: #fdfcf0;
-      --deep: #2c2318;
-    }
-
-    html {
-      -webkit-text-size-adjust: 100%;
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      padding: 0;
-      background: var(--ivory);
-      color: var(--deep);
-      font-family: 'Shippori Mincho', serif;
-      overflow-x: hidden;
-    }
-
-    a {
-      color: var(--gold);
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    /* 3. 固定ナビ */
-    .nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 80px;
-      z-index: 9999;
-      background: var(--ivory);
-      border-bottom: 1px solid rgba(184, 164, 126, 0.5);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0 48px;
-    }
-
-    .nav-brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      text-decoration: none;
-      color: inherit;
-    }
-
-    .nav-brand:hover {
-      text-decoration: none;
-      opacity: 0.9;
-    }
-
-    .nav-logo {
-      height: 38px;
-      width: auto;
-      object-fit: contain;
-    }
-
-    .nav-right {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-    }
-
-    .nav-badges {
-      font-size: 0.75rem;
-      color: #6b6154;
-    }
-
-    .nav-tel {
-      color: var(--gold);
-      font-weight: 700;
-      font-size: 1.2rem;
-    }
-
-    .nav-tel:hover {
-      text-decoration: none;
-      opacity: 0.9;
-    }
-
-    /* 4. ヒーロー（フラッシュ演出） */
-    .hero {
-      margin-top: 80px;
-      height: 450px;
-      background: #2c2318;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-flash {
-      position: absolute;
-      inset: 0;
-      background: #fff;
-      z-index: 10;
-      opacity: 0;
-      animation: flash 5s infinite;
-      pointer-events: none;
-    }
-
-    @keyframes flash {
-      0%, 92% { opacity: 0; }
-      94% { opacity: 0.6; }
-      100% { opacity: 0; }
-    }
-
-    .slide {
-      position: absolute;
-      inset: 0;
-      opacity: 0;
-      transition: opacity 2s;
-      background-size: cover;
-      background-position: center;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .slide.active {
-      opacity: 1;
-      z-index: 1;
-    }
-
-    .slide-caption {
-      color: #fff;
-      font-size: 1.8rem;
-      font-weight: 700;
-      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-      letter-spacing: 0.2em;
-      transform: translateY(20px);
-      opacity: 0;
-    }
-
-    .slide.active .slide-caption {
-      animation: fadeInUp 1.2s 0.6s forwards;
-    }
-
-    @keyframes fadeInUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    /* 4.5. 診療日誌Ticker（真鍮の輝き） */
-    .ticker-wrap {
-      background: var(--ivory);
-      border-top: 1px solid rgba(184, 164, 126, 0.3);
-      border-bottom: 1px solid rgba(184, 164, 126, 0.3);
-      overflow: hidden;
-      padding: 14px 0;
-    }
-
-    .ticker-track {
-      display: flex;
-      width: max-content;
-      animation: ticker-scroll 40s linear infinite;
-    }
-
-    .ticker-track:hover {
-      animation-play-state: paused;
-    }
-
-    .ticker-item {
-      -webkit-text-size-adjust: none;
-      text-decoration: none;
-      color: inherit;
-      display: inline-block;
-      white-space: nowrap;
-      padding: 0 48px;
-      font-family: 'Shippori Mincho', serif;
-      font-size: 14px !important;
-      color: var(--deep);
-      letter-spacing: 0.08em;
-      opacity: 0.88;
-      transition: opacity 0.2s;
-    }
-
-    .ticker-item:hover {
-      opacity: 0.7;
-      text-decoration: none;
-    }
-
-    .ticker-item::after {
-      content: "　◆　";
-      color: rgba(184, 164, 126, 0.6);
-      font-size: 0.5em;
-    }
-
-    @keyframes ticker-scroll {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
-
-    /* 5. メッセージセクション */
-    .msg-section {
-      padding: 80px 32px;
-      text-align: center;
-      background: var(--cream);
-      max-width: 1200px;
-      margin: 0 auto;
-      border-bottom: 1px solid rgba(184, 164, 126, 0.35);
-    }
-
-    .msg-section h3 {
-      font-size: 1.3rem;
-      margin-bottom: 20px;
-      color: var(--gold);
-    }
-
-    .msg-section p {
-      max-width: 720px;
-      margin: 0 auto;
-      line-height: 1.8;
-    }
-
-    .msg-section strong {
-      color: var(--gold);
-    }
-
-    /* 6. 10枚タイル（2列グリッド） */
-    .box-section {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 80px 20px;
-    }
-
-    .section-title {
-      text-align: center;
-      margin-bottom: 40px;
-      font-size: 1.5rem;
-    }
-
-    .section-title .title-gold {
-      color: var(--gold);
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 24px;
-    }
-
-    .card {
-      background: #fff;
-      border: 1px solid rgba(184, 164, 126, 0.4);
-      padding: 32px;
-      text-align: center;
-      color: var(--deep);
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      transition: border-color 0.2s, transform 0.2s;
-    }
-
-    .card:hover {
-      border-color: var(--gold);
-      transform: translateY(-5px);
-      text-decoration: none;
-      color: var(--deep);
-    }
-
-    .card-icon {
-      font-size: 1.8rem;
-      margin-bottom: 12px;
-    }
-
-    .card-title {
-      font-weight: 700;
-      font-size: 1.1rem;
-      margin-bottom: 8px;
-      min-height: 2.5em;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #2d241e;
-      white-space: nowrap;
-    }
-
-    .card-desc {
-      font-size: 0.8rem;
-      color: #6b6154;
-      line-height: 1.5;
-    }
-
-    /* 7. 3つの四角いボタン */
-    .mini-nav {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      flex-wrap: wrap;
-      margin-top: 40px;
-      padding-top: 32px;
-      border-top: 1px solid rgba(184, 164, 126, 0.35);
-    }
-
-    .mini-nav a {
-      padding: 16px 40px;
-      background: #fff;
-      border: 1px solid var(--gold);
-      color: var(--gold);
-      font-size: 0.95rem;
-    }
-
-    .mini-nav a:hover {
-      background: #fcfaf6;
-      text-decoration: none;
-    }
-
-    /* 7.5. お知らせ欄（一筆箋風） */
-    .info-section {
-      max-width: 720px;
-      margin: 0 auto;
-      padding: 80px 32px;
-    }
-
-    .info-paper {
-      background: linear-gradient(180deg, #fffef9 0%, #fdfcf7 100%);
-      border: 1px solid rgba(184, 164, 126, 0.35);
-      padding: 56px 64px 64px;
-      box-shadow: 0 2px 24px rgba(44, 35, 24, 0.04);
-      position: relative;
-    }
-
-    .info-paper::before {
-      content: "";
-      position: absolute;
-      top: 24px;
-      left: 32px;
-      right: 32px;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(184, 164, 126, 0.2), transparent);
-    }
-
-    .info-label {
-      font-family: 'Shippori Mincho', serif;
-      font-size: 0.8rem;
-      letter-spacing: 0.3em;
-      color: var(--gold);
-      margin-bottom: 20px;
-    }
-
-    .info-title {
-      font-family: 'Shippori Mincho', serif;
-      font-size: 1.25rem;
-      font-weight: 700;
-      color: var(--deep);
-      margin-bottom: 24px;
-      letter-spacing: 0.05em;
-      line-height: 1.7;
-    }
-
-    .info-body {
-      font-family: 'Shippori Mincho', serif;
-      font-size: 0.95rem;
-      color: #4a4238;
-      line-height: 2.2;
-      letter-spacing: 0.04em;
-    }
-
-    /* 8. 歴史セクション */
-    .history-section {
-      padding: 80px 32px;
-      text-align: center;
-      background: #f8f6f0;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .history-inner {
-      max-width: 800px;
-      margin: 0 auto;
-      line-height: 1.8;
-    }
-
-    .history-quote {
-      margin: 30px 0;
-      padding: 24px 32px;
-      border-left: 3px solid var(--gold);
-      background: #f5f2eb;
-      font-size: 1.2rem;
-      font-weight: 700;
-      text-align: left;
-    }
-
-    .stats {
-      display: flex;
-      justify-content: space-around;
-      margin-top: 40px;
-      flex-wrap: wrap;
-      gap: 24px;
-    }
-
-    .stat-number {
-      font-size: 2.2rem;
-      color: var(--gold);
-      display: block;
-    }
-
-    .stat-label {
-      font-size: 0.9rem;
-      color: #6b6154;
-    }
-
-    .history-link a {
-      color: var(--gold);
-      border-bottom: 1px solid var(--gold);
-      padding-bottom: 2px;
-    }
-
-    .history-link a:hover {
-      text-decoration: none;
-      opacity: 0.9;
-    }
-
-    /* 9. CTAエリア */
-    .cta-area {
-      padding: 80px 32px;
-      text-align: center;
-      background: var(--deep);
-      color: #fff;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .cta-area h2 {
-      font-size: 1.5rem;
-      margin-bottom: 16px;
-    }
-
-    .cta-area p {
-      color: rgba(255, 255, 255, 0.9);
-      margin-bottom: 24px;
-    }
-
-    .cta-btns {
-      display: flex;
-      gap: 20px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      padding: 24px 48px;
-      font-size: 1.1rem;
-      font-weight: 700;
-      border: none;
-      cursor: pointer;
-    }
-
-    .btn:hover {
-      text-decoration: none;
-      opacity: 0.95;
-    }
-
-    .btn-tel {
-      background: var(--gold);
-      color: #1a1410;
-    }
-
-    .btn-line {
-      background: #06C755;
-      color: #fff;
-    }
-
-    /* 9.5. アクセス・地図 */
-    .access-section {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 80px 32px 100px;
-      background: var(--ivory);
-    }
-
-    .access-inner {
-      display: grid;
-      grid-template-columns: 1fr 1.2fr;
-      gap: 48px;
-      align-items: start;
-    }
-
-    .access-text {
-      padding-top: 8px;
-    }
-
-    .access-heading {
-      font-family: 'Shippori Mincho', serif;
-      font-size: 1rem;
-      font-weight: 700;
-      letter-spacing: 0.2em;
-      color: var(--gold);
-      margin-bottom: 24px;
-    }
-
-    .access-directions {
-      font-family: 'Shippori Mincho', serif;
-      font-size: 1.05rem;
-      line-height: 2.1;
-      color: var(--deep);
-      letter-spacing: 0.05em;
-    }
-
-    .access-directions p {
-      margin: 0 0 16px;
-    }
-
-    .access-directions strong {
-      color: var(--gold);
-      font-weight: 700;
-    }
-
-    .access-address {
-      margin-top: 24px;
-      padding-top: 24px;
-      border-top: 1px solid rgba(184, 164, 126, 0.3);
-      font-size: 0.95rem;
-      color: #5a5148;
-    }
-
-    .access-map-wrap {
-      position: relative;
-      border-radius: 4px;
-      overflow: hidden;
-      box-shadow: 0 4px 32px rgba(44, 35, 24, 0.08);
-    }
-
-    .access-map-wrap iframe {
-      display: block;
-      width: 100%;
-      height: 360px;
-      border: none;
-      filter: grayscale(0.5) sepia(0.2);
-    }
-
-    .access-map-wrap iframe:hover {
-      filter: grayscale(0.3) sepia(0.1);
-    }
-
-    /* 10. フッター */
-    .footer {
-      padding: 40px;
-      text-align: center;
-      background: #1a1410;
-      color: rgba(255, 255, 255, 0.6);
-      font-size: 0.85rem;
-    }
-
-    .footer-logo {
-      display: block;
-      margin: 0 auto 24px;
-      height: 32px;
-      width: auto;
-    }
-
-    /* 11. 固定CTA（スマホ） */
-    .sticky-cta {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      display: none;
-      grid-template-columns: 1fr 1fr;
-      z-index: 9998;
-    }
-
-    .sticky-cta a {
-      padding: 22px 24px;
-      text-align: center;
-      font-weight: 700;
-      font-size: 1.05rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 66px;
-    }
-
-    .sticky-cta a:hover {
-      text-decoration: none;
-      opacity: 0.95;
-    }
-
-    .cta-btn.tel {
-      background: var(--gold);
-      color: #1a1410;
-    }
-
-    .cta-btn.line {
-      background: #06C755;
-      color: #fff;
-    }
-
-    /* 12. レスポンシブ */
-    @media (max-width: 768px) {
-      .nav {
-        padding: 16px 20px;
-        height: auto;
-        flex-wrap: wrap;
-        justify-content: center;
-      }
-
-      .nav-right {
-        flex: 1 1 100%;
-        justify-content: center;
-        padding-top: 10px;
-        margin-top: 4px;
-        border-top: 1px solid rgba(184, 164, 126, 0.5);
-      }
-
-      .nav-tel {
-        font-size: 1.15rem;
-      }
-
-      .hero {
-        margin-top: 100px;
-        height: 320px;
-      }
-
-      .slide-caption {
-        font-size: 1.1rem;
-      }
-
-      .grid {
-        gap: 14px;
-      }
-
-      .box-section {
-        padding: 40px 20px 20px;
-      }
-
-      .info-section {
-        padding: 20px 20px 40px;
-      }
-
-      .info-paper { padding: 40px 28px 48px; }
-
-      .history-section {
-        padding: 40px 20px;
-      }
-
-      .access-section {
-        padding: 40px 20px 60px;
-      }
-
-      .card-title {
-        font-size: 14px !important;
-      }
-
-      .msg-section p {
-        font-size: 15px !important;
-      }
-
-      .ticker-item {
-        -webkit-text-size-adjust: none;
-        font-size: 11px !important;
-        padding: 0 24px;
-      }
-
-      .mini-nav {
-        margin-top: 20px;
-        padding-top: 20px;
-      }
-
-      .access-inner {
-        grid-template-columns: 1fr;
-        gap: 32px;
-      }
-
-      .access-map-wrap iframe {
-        height: 280px;
-      }
-
-      .cta-btns {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .btn {
-        width: 100%;
-        max-width: 340px;
-        padding: 26px;
-        box-sizing: border-box;
-      }
-
-      .sticky-cta {
-        display: grid;
-      }
-
-      body {
-        padding-bottom: 88px;
-      }
+    /* Lightning 完全抹殺 */
+    #masthead,#site-header,.site-header,.page-header,.breadcrumb,.vk-mobile-nav,.entry-header,.site-footer,.entry-title,.page-title,.site-title,.global-nav,.gMenu,[id*="masthead"],[class*="site-header"],[class*="site-footer"],[class*="breadcrumb"],[class*="global-nav"],[class*="gMenu"]{display:none!important;height:0!important;margin:0!important;padding:0!important;visibility:hidden!important;position:absolute!important;left:-9999px!important}
+    #main,.entry-content,.container,.site-body,.mainSection,.site-main{padding:0!important;margin:0!important;max-width:100%!important;width:100%!important;background:none!important;border:none!important}
+    html,body{background:#fdfcf0!important;margin:0!important;padding:0!important}
+
+    *,*::before,*::after{box-sizing:border-box}
+    :root{--gold:#b8a47e;--ivory:#fdfcf0;--deep:#2c2318}
+    body{font-family:'Shippori Mincho',serif;color:var(--deep);overflow-x:hidden}
+    a{color:var(--gold);text-decoration:none}
+    a:hover{opacity:0.85}
+
+    /* 固定ナビ */
+    .nav{position:fixed;top:0;left:0;width:100%;height:64px;z-index:9999;background:var(--ivory);display:flex;justify-content:space-between;align-items:center;padding:0 32px}
+    .nav-brand{display:flex;align-items:center}
+    .nav-logo{height:34px;width:auto}
+    .nav-right{display:flex;align-items:center;gap:16px}
+    .nav-badges{font-size:0.7rem;color:#6b6154}
+    .nav-tel{color:var(--gold);font-weight:700;font-size:1.1rem}
+
+    /* ① ポエム（フェードイン・贅沢な余白） */
+    .poem{margin-top:64px;padding:80px 24px 64px;text-align:center;font-family:"Yu Mincho","Yu Mincho","Hiragino Mincho ProN","Noto Serif JP","Shippori Mincho",serif;font-size:1.1rem;letter-spacing:0.15em;line-height:2.6;color:var(--deep);opacity:0;animation:poemFade 2s 0.5s forwards}
+    .poem-line{display:block}
+    @keyframes poemFade{to{opacity:1}}
+
+    /* ② 垂直流動エリア（スリムな横長帯） */
+    .vertical-flow{width:100%;height:200px;position:relative;overflow:hidden;background:#3d3528}
+    .vertical-flow-bg{position:absolute;inset:0;opacity:0;transition:opacity 3s;background-size:cover;background-position:center;filter:sepia(0.4) brightness(0.7)}
+    .vertical-flow-bg.active{opacity:1}
+    .vertical-flow-bg.a{background-image:url('https://placehold.co/1200x400/3d3528/c4b896?text=history')}
+    .vertical-flow-bg.b{background-image:url('https://placehold.co/1200x400/2c2318/b8a47e?text=1928')}
+    .vertical-flow-bg.c{background-image:url('https://placehold.co/1200x400/1a1410/ede6d6?text=tradition')}
+    .vertical-flow-text{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;overflow:hidden}
+    .vertical-flow-fragment{position:absolute;bottom:-100%;left:50%;transform:translateX(-50%);color:rgba(255,255,255,0.9);font-size:0.85rem;letter-spacing:0.2em;white-space:nowrap;animation:riseFade 8s infinite}
+    .vertical-flow-fragment:nth-child(1){animation-delay:0s}
+    .vertical-flow-fragment:nth-child(2){animation-delay:2.5s}
+    .vertical-flow-fragment:nth-child(3){animation-delay:5s}
+    @keyframes riseFade{0%{bottom:-20%;opacity:0}15%{opacity:1}85%{opacity:1}100%{bottom:120%;opacity:0}}
+
+    /* ③ 診療日誌Ticker（②の直下） */
+    .ticker-wrap{background:var(--ivory);overflow:hidden;padding:10px 0}
+    .ticker-track{display:flex;width:max-content;animation:ticker-scroll 40s linear infinite}
+    .ticker-track:hover{animation-play-state:paused}
+    .ticker-item{-webkit-text-size-adjust:none;display:inline-block;white-space:nowrap;padding:0 32px;font-size:11px;color:var(--deep);letter-spacing:0.06em;opacity:0.9}
+    .ticker-item::after{content:"　◆　";color:rgba(184,164,126,0.5);font-size:0.6em}
+    @keyframes ticker-scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+    /* ④ Main（実務情報） */
+    .main{padding:48px 24px 56px;max-width:900px;margin:0 auto}
+
+    .msg{padding:0 0 40px;text-align:center}
+    .msg h3{font-size:1.15rem;margin:0 0 12px;color:var(--gold)}
+    .msg p{font-size:0.95rem;line-height:1.9;margin:0}
+
+    .box-section{padding:32px 0}
+    .section-title{text-align:center;margin:0 0 24px;font-size:1.25rem}
+    .section-title .title-gold{color:var(--gold)}
+    .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+    .card{background:#fff;padding:24px;text-align:center;color:var(--deep);display:flex;flex-direction:column;align-items:center;transition:transform 0.2s;box-shadow:0 1px 20px rgba(44,35,24,0.04)}
+    .card:hover{transform:translateY(-3px);color:var(--deep)}
+    .card-icon{font-size:1.5rem;margin-bottom:8px}
+    .card-title{font-weight:700;font-size:1rem;margin-bottom:6px;min-height:2.2em;display:flex;align-items:center;justify-content:center;color:#2d241e}
+    .card-desc{font-size:0.75rem;color:#6b6154;line-height:1.5}
+
+    .mini-nav{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:24px}
+    .mini-nav a{padding:12px 28px;background:#fff;color:var(--gold);font-size:0.9rem;box-shadow:0 1px 12px rgba(44,35,24,0.04)}
+    .mini-nav a:hover{opacity:0.9}
+
+    .info-section{padding:32px 0}
+    .info-paper{background:linear-gradient(180deg,#fffef9 0%,#fdfcf7 100%);padding:40px 48px;box-shadow:0 1px 24px rgba(44,35,24,0.03)}
+    .info-label{font-size:0.75rem;letter-spacing:0.25em;color:var(--gold);margin-bottom:12px}
+    .info-title{font-size:1.1rem;font-weight:700;color:var(--deep);margin-bottom:16px;line-height:1.6}
+    .info-body{font-size:0.9rem;color:#4a4238;line-height:2;letter-spacing:0.03em}
+
+    .history-section{padding:32px 0}
+    .history-inner{max-width:640px;margin:0 auto;line-height:1.9}
+    .history-inner>p{font-size:0.95rem;margin:0 0 20px}
+    .history-quote{margin:20px 0;padding:20px 24px;border-left:2px solid var(--gold);background:rgba(184,164,126,0.06);font-size:1.05rem;font-weight:700}
+    .stats{display:flex;justify-content:center;gap:40px;margin:24px 0}
+    .stat-number{font-size:1.6rem;color:var(--gold);display:block}
+    .stat-label{font-size:0.8rem;color:#6b6154}
+
+    /* 光の一条：あゆみと理念（1px線＋光の往復） */
+    .ayumi-link{display:inline-block;margin-top:20px;font-size:0.9rem;color:var(--gold);position:relative;padding-bottom:10px;overflow:visible}
+    .ayumi-link::after{content:"";position:absolute;bottom:0;left:0;width:100%;height:1px;background:rgba(184,164,126,0.25)}
+    .ayumi-link::before{content:"";position:absolute;bottom:0;left:0;width:80px;height:1px;background:linear-gradient(90deg,transparent,rgba(184,164,126,0.95),transparent);z-index:1;animation:lightBeam 2.8s ease-in-out infinite}
+    @keyframes lightBeam{0%{left:0;opacity:1}48%{left:calc(100% - 80px);opacity:1}52%{left:calc(100% - 80px);opacity:1}100%{left:0;opacity:1}}
+
+    .cta-area{padding:40px 0;text-align:center;background:var(--deep);color:#fff;margin:0 -24px;padding:40px 24px}
+    .cta-area h2{font-size:1.25rem;margin:0 0 12px}
+    .cta-area p{font-size:0.9rem;opacity:0.9;margin:0 0 20px}
+    .cta-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+    .btn{padding:20px 40px;font-size:1rem;font-weight:700;border:none;cursor:pointer}
+    .btn-tel{background:var(--gold);color:#1a1410}
+    .btn-line{background:#06C755;color:#fff}
+
+    .access-section{padding:40px 0}
+    .access-heading{font-size:0.9rem;font-weight:700;letter-spacing:0.15em;color:var(--gold);margin-bottom:16px}
+    .access-directions{font-size:0.95rem;line-height:2;color:var(--deep)}
+    .access-directions p{margin:0 0 8px}
+    .access-directions strong{color:var(--gold)}
+    .access-address{margin-top:16px;padding-top:16px;font-size:0.9rem;color:#5a5148}
+    .access-map-wrap{margin-top:24px;overflow:hidden}
+    .access-map-wrap iframe{display:block;width:100%;height:300px;border:none;filter:grayscale(0.4) sepia(0.15)}
+
+    .footer{padding:32px;text-align:center;background:#1a1410;color:rgba(255,255,255,0.6);font-size:0.8rem}
+    .footer-logo{display:block;margin:0 auto 16px;height:28px}
+
+    .sticky-cta{position:fixed;bottom:0;left:0;width:100%;display:none;grid-template-columns:1fr 1fr;z-index:9998}
+    .cta-btn{padding:18px;text-align:center;font-weight:700;font-size:0.95rem;display:flex;align-items:center;justify-content:center;min-height:56px}
+    .cta-btn.tel{background:var(--gold);color:#1a1410}
+    .cta-btn.line{background:#06C755;color:#fff}
+
+    @media (max-width:768px){
+      .nav{height:auto;padding:12px 16px;flex-wrap:wrap}
+      .nav-right{flex:1 1 100%;justify-content:center;padding-top:8px;margin-top:4px}
+      .poem{margin-top:90px;padding:48px 16px 40px;font-size:1rem}
+      .vertical-flow{height:160px}
+      .ticker-item{font-size:11px;padding:0 20px}
+      .main{padding:32px 16px 48px}
+      .grid{gap:12px}
+      .card{padding:20px}
+      .card-title{font-size:13px}
+      .info-paper{padding:28px 24px}
+      .cta-btns{flex-direction:column}
+      .btn{width:100%;max-width:300px;padding:18px}
+      .sticky-cta{display:grid}
+      body{padding-bottom:76px}
     }
   </style>
 </head>
 <body>
 
-  <section class="first-view">
-    <span class="first-view-line">銀座・有楽町。三代続く漢方専門外来。</span>
-    <span class="first-view-line">Since 1928.</span>
-    <span class="first-view-line">自由診療だからこそ叶う、あなただけのオーダーメイド処方。</span>
-  </section>
-
-  <div class="visual-flow" aria-label="写真スライドエリア">ここに歴史が流れる</div>
-
   <nav class="nav">
-    <a href="https://www.hosonokampo.jp/" class="nav-brand">
-      <img src="https://www.hosonokampo.jp/blog/wp-content/uploads/2026/03/細野logo.png" alt="細野漢方診療所" class="nav-logo">
-    </a>
+    <a href="https://www.hosonokampo.jp/" class="nav-brand"><img src="https://www.hosonokampo.jp/blog/wp-content/uploads/2026/03/細野logo.png" alt="細野漢方診療所" class="nav-logo"></a>
     <div class="nav-right">
       <span class="nav-badges">完全予約制 ／ 各種カード可</span>
       <a href="tel:0352513637" class="nav-tel">☎ 03-5251-3637</a>
     </div>
   </nav>
 
-  <div class="hero">
-    <div class="hero-flash"></div>
-    <div class="slide active" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('https://placehold.co/1200x600/3d3528/ede6d6?text=');">
-      <span class="slide-caption">九十八年の歴史と、三代の知恵</span>
-    </div>
-    <div class="slide" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('https://placehold.co/1200x600/2c2318/e8e0d0?text=');">
-      <span class="slide-caption">病名ではなく、人を診る。</span>
-    </div>
-    <div class="slide" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('https://placehold.co/1200x600/1a1410/ede6d6?text=');">
-      <span class="slide-caption">あなただけの『証』を読み解く精密な処方</span>
-    </div>
-  </div>
-
-  <section class="msg-section">
-    <h3>医師による深い診察と、薬剤師によるきめ細やかなサポート</h3>
-    <p>当診療所では、<strong>医師による診察</strong>を軸に、2名の漢方専門薬剤師が常駐する体制を整えております。お薬のことはもちろん、<strong>日常のちょっとした体調の変化</strong>や「こんなこと聞いてもいいのかしら」と思うような些細な不安も、どうぞお気軽にご相談ください。</p>
+  <!-- ① ポエム -->
+  <section class="poem">
+    <span class="poem-line">銀座・有楽町。三代続く漢方専門外来。</span>
+    <span class="poem-line">Since 1928.</span>
+    <span class="poem-line">自由診療だからこそ叶う、あなただけのオーダーメイド処方。</span>
   </section>
 
-  <section class="box-section">
-    <h2 class="section-title"><span class="title-gold">細野漢方診療所</span>で、できること</h2>
-    <div class="grid">
-      <a href="https://www.hosonokampo.jp/gestational/" class="card"><span class="card-icon">🌱</span><span class="card-title">女性疾患・不妊</span><p class="card-desc">更年期、月経トラブル、不妊。女性特有の悩みに寄り添います</p></a>
-      <a href="https://www.hosonokampo.jp/atopy/" class="card"><span class="card-icon">🍃</span><span class="card-title">アトピー・皮膚トラブル</span><p class="card-desc">繰り返す痒みや肌荒れ。内側からの体質改善を目指します</p></a>
-      <a href="https://www.hosonokampo.jp/other_treatment/#:~:text=胃もたれ" class="card"><span class="card-icon">🫁</span><span class="card-title">消化器の不調</span><p class="card-desc">胃もたれ、便秘、過敏性腸症候群など。お腹の平和を取り戻す</p></a>
-      <a href="https://www.hosonokampo.jp/other_treatment/#:~:text=不眠・めまい" class="card"><span class="card-icon">💤</span><span class="card-title">自律神経・不眠</span><p class="card-desc">眠れない、めまい、不安感。乱れたリズムを漢方で整える</p></a>
-      <a href="https://www.hosonokampo.jp/other_treatment/#:~:text=喘息" class="card"><span class="card-icon">💨</span><span class="card-title">呼吸器（喘息・咳）</span><p class="card-desc">長引く咳、喘息、喉の違和感。呼吸を楽にするアプローチ</p></a>
-      <a href="https://www.hosonokampo.jp/other_treatment/#:~:text=その他の症状" class="card"><span class="card-icon">🔍</span><span class="card-title">「異常なし」の不調</span><p class="card-desc">検査で異常がないのに辛い。その『未病』の段階から漢方でアプローチ</p></a>
-      <a href="https://www.hosonokampo.jp/about/herbal_medicine/" class="card"><span class="card-icon">⚗️</span><span class="card-title">独自の精密調合</span><p class="card-desc">400種以上のエキス剤を自在に組み合わせ、あなた専用の処方を</p></a>
-      <a href="https://www.hosonokampo.jp/about/clinic/tokyo/" class="card"><span class="card-icon">💊</span><span class="card-title">院内処方・即日</span><p class="card-desc">診察後、その場でお薬をお渡し。お待たせする時間を最小限に</p></a>
-      <a href="https://www.hosonokampo.jp/cost/faq/" class="card"><span class="card-icon">❓</span><span class="card-title">よくあるご質問</span><p class="card-desc">煎じ薬との違いや通院期間、保険診療との違いなど</p></a>
-      <a href="https://www.hosonokampo.jp/cost/" class="card"><span class="card-icon">💰</span><span class="card-title">費用・受診の流れ</span><p class="card-desc">初診料や処方費用の目安、当日の診察の流れをご案内</p></a>
-    </div>
-    <nav class="mini-nav">
-      <a href="https://www.hosonokampo.jp/about/doctor/">医師の紹介</a>
-      <a href="https://www.hosonokampo.jp/about/media/">メディア掲載</a>
-      <a href="https://www.hosonokampo.jp/about/number/">来院実績</a>
-    </nav>
-  </section>
-
-  <section class="info-section">
-    <div class="info-paper">
-      <p class="info-label">INFORMATION</p>
-      <h3 class="info-title">【重要】診療時間変更のお知らせ</h3>
-      <p class="info-body">平素より当診療所をご利用いただき、誠にありがとうございます。<br>〇月〇日より診療時間を一部変更いたします。ご来院の際はお手数ですが、当ページまたはお電話にて最新の診療日時をご確認くださいますようお願い申し上げます。</p>
+  <!-- ② 垂直流動エリア -->
+  <section class="vertical-flow" aria-label="歴史の流れ">
+    <div class="vertical-flow-bg a active"></div>
+    <div class="vertical-flow-bg b"></div>
+    <div class="vertical-flow-bg c"></div>
+    <div class="vertical-flow-text">
+      <span class="vertical-flow-fragment">九十八年の歴史と、三代の知恵</span>
+      <span class="vertical-flow-fragment">病名ではなく、人を診る。</span>
+      <span class="vertical-flow-fragment">あなただけの『証』を読み解く</span>
     </div>
   </section>
 
-  <section class="history-section">
-    <div class="history-inner">
-      <p>1928年の開院以来、九十八年。三代にわたり漢方診療を続けてきた細野漢方診療所。一人ひとりの「証（体質と病態）」を深く読み解き、自由診療ならではの400種類以上のエキス剤から、あなたに最適な処方を組み立てます。</p>
-      <div class="history-quote">「病名ではなく、人を診る」<br>それが、細野漢方診療所98年の原点です。</div>
-      <div class="stats">
-        <div><span class="stat-number">98年</span><span class="stat-label">歴史</span></div>
-        <div><span class="stat-number">3代</span><span class="stat-label">承継</span></div>
-        <div><span class="stat-number">400種+</span><span class="stat-label">エキス剤</span></div>
-      </div>
-      <p class="history-link"><a href="https://www.hosonokampo.jp/about/">私たちの歩みと理念を詳しく見る</a></p>
-    </div>
-  </section>
-
-  <section class="cta-area">
-    <h2>まず、ご相談ください</h2>
-    <p>「自分の症状に漢方が合うか分からない」そんなご不安も、受付スタッフへお気軽にどうぞ。</p>
-    <div class="cta-btns">
-      <a href="tel:0352513637" class="btn btn-tel">☎ 電話で予約・お問合せ</a>
-      <a href="https://lin.ee/glFn7qu" class="btn btn-line" target="_blank" rel="noopener noreferrer">📲 LINEでかんたん予約</a>
-    </div>
-    <p style="margin-top: 32px; font-size: 0.9rem; opacity: 0.9;">受付時間：火・木・金 10:00〜18:00 ／ 土 9:30〜16:30<br>東京都千代田区有楽町1-2-14 紫ビル4階</p>
-  </section>
-
-  <section class="access-section">
-    <div class="access-inner">
-      <div class="access-text">
-        <h3 class="access-heading">ACCESS</h3>
-        <div class="access-directions">
-          <p><strong>東京メトロ銀座線</strong> 銀座駅 B3番出口より 徒歩約5分</p>
-          <p><strong>JR山手線</strong> 有楽町駅 京橋口より 徒歩約8分</p>
-          <p><strong>東京メトロ日比谷線</strong> 日比谷駅 A1番出口より 徒歩約7分</p>
-          <p>紫ビル4階にエレベーターでお上がりいただき、正面が受付です。</p>
-        </div>
-        <p class="access-address">〒100-0006 東京都千代田区有楽町1-2-14 紫ビル4階</p>
-      </div>
-      <div class="access-map-wrap">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3240.89!2d139.760!3d35.674!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188bfbd89f700b%3A0x277e49ba33ed038!2z5p2x5Lqs6Zu344O25bKh6aeF!5e0!3m2!1sja!2sjp!4v1640000000" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="細野漢方診療所への地図"></iframe>
-      </div>
-    </div>
-  </section>
-
+  <!-- ③ 診療日誌Ticker（②の直下） -->
   <section class="ticker-wrap" aria-label="診療日誌">
     <div class="ticker-track">
       <a href="https://www.hosonokampo.jp/blog/2022/08/16/%e8%83%83%e3%82%82%e3%81%9f%e3%82%8c%e3%81%aa%e3%81%a9%e3%80%81%e8%83%83%e3%81%ae%e4%b8%8d%e5%85%b7%e5%90%88%e3%81%ab%e4%bd%bf%e3%81%86%e6%bc%a2%e6%96%b9%e8%96%ac%e3%81%af%e7%a8%ae%e9%a1%9e%e3%81%8c/" class="ticker-item">胃もたれなど、胃の不具合に使う漢方薬は種類が多すぎて迷います！</a>
@@ -934,6 +185,80 @@
     </div>
   </section>
 
+  <!-- ④ Main -->
+  <main class="main">
+    <section class="msg">
+      <h3>医師による深い診察と、薬剤師によるきめ細やかなサポート</h3>
+      <p>当診療所では、<strong>医師による診察</strong>を軸に、2名の漢方専門薬剤師が常駐する体制を整えております。お薬のことはもちろん、<strong>日常のちょっとした体調の変化</strong>や「こんなこと聞いてもいいのかしら」と思うような些細な不安も、どうぞお気軽にご相談ください。</p>
+    </section>
+
+    <section class="box-section">
+      <h2 class="section-title"><span class="title-gold">細野漢方診療所</span>で、できること</h2>
+      <div class="grid">
+        <a href="https://www.hosonokampo.jp/gestational/" class="card"><span class="card-icon">🌱</span><span class="card-title">女性疾患・不妊</span><p class="card-desc">更年期、月経トラブル、不妊。女性特有の悩みに寄り添います</p></a>
+        <a href="https://www.hosonokampo.jp/atopy/" class="card"><span class="card-icon">🍃</span><span class="card-title">アトピー・皮膚トラブル</span><p class="card-desc">繰り返す痒みや肌荒れ。内側からの体質改善を目指します</p></a>
+        <a href="https://www.hosonokampo.jp/other_treatment/#:~:text=胃もたれ" class="card"><span class="card-icon">🫁</span><span class="card-title">消化器の不調</span><p class="card-desc">胃もたれ、便秘、過敏性腸症候群など。お腹の平和を取り戻す</p></a>
+        <a href="https://www.hosonokampo.jp/other_treatment/#:~:text=不眠・めまい" class="card"><span class="card-icon">💤</span><span class="card-title">自律神経・不眠</span><p class="card-desc">眠れない、めまい、不安感。乱れたリズムを漢方で整える</p></a>
+        <a href="https://www.hosonokampo.jp/other_treatment/#:~:text=喘息" class="card"><span class="card-icon">💨</span><span class="card-title">呼吸器（喘息・咳）</span><p class="card-desc">長引く咳、喘息、喉の違和感。呼吸を楽にするアプローチ</p></a>
+        <a href="https://www.hosonokampo.jp/other_treatment/#:~:text=その他の症状" class="card"><span class="card-icon">🔍</span><span class="card-title">「異常なし」の不調</span><p class="card-desc">検査で異常がないのに辛い。その『未病』の段階から漢方でアプローチ</p></a>
+        <a href="https://www.hosonokampo.jp/about/herbal_medicine/" class="card"><span class="card-icon">⚗️</span><span class="card-title">独自の精密調合</span><p class="card-desc">400種以上のエキス剤を自在に組み合わせ、あなた専用の処方を</p></a>
+        <a href="https://www.hosonokampo.jp/about/clinic/tokyo/" class="card"><span class="card-icon">💊</span><span class="card-title">院内処方・即日</span><p class="card-desc">診察後、その場でお薬をお渡し。お待たせする時間を最小限に</p></a>
+        <a href="https://www.hosonokampo.jp/cost/faq/" class="card"><span class="card-icon">❓</span><span class="card-title">よくあるご質問</span><p class="card-desc">煎じ薬との違いや通院期間、保険診療との違いなど</p></a>
+        <a href="https://www.hosonokampo.jp/cost/" class="card"><span class="card-icon">💰</span><span class="card-title">費用・受診の流れ</span><p class="card-desc">初診料や処方費用の目安、当日の診察の流れをご案内</p></a>
+      </div>
+      <nav class="mini-nav">
+        <a href="https://www.hosonokampo.jp/about/doctor/">医師の紹介</a>
+        <a href="https://www.hosonokampo.jp/about/media/">メディア掲載</a>
+        <a href="https://www.hosonokampo.jp/about/number/">来院実績</a>
+      </nav>
+    </section>
+
+    <section class="info-section">
+      <div class="info-paper">
+        <p class="info-label">INFORMATION</p>
+        <h3 class="info-title">【重要】診療時間変更のお知らせ</h3>
+        <p class="info-body">平素より当診療所をご利用いただき、誠にありがとうございます。<br>〇月〇日より診療時間を一部変更いたします。ご来院の際はお手数ですが、当ページまたはお電話にて最新の診療日時をご確認くださいますようお願い申し上げます。</p>
+      </div>
+    </section>
+
+    <section class="history-section">
+      <div class="history-inner">
+        <p>1928年の開院以来、九十八年。三代にわたり漢方診療を続けてきた細野漢方診療所。一人ひとりの「証（体質と病態）」を深く読み解き、自由診療ならではの400種類以上のエキス剤から、あなたに最適な処方を組み立てます。</p>
+        <div class="history-quote">「病名ではなく、人を診る」<br>それが、細野漢方診療所98年の原点です。</div>
+        <div class="stats">
+          <div><span class="stat-number">98年</span><span class="stat-label">歴史</span></div>
+          <div><span class="stat-number">3代</span><span class="stat-label">承継</span></div>
+          <div><span class="stat-number">400種+</span><span class="stat-label">エキス剤</span></div>
+        </div>
+        <a href="https://www.hosonokampo.jp/about/" class="ayumi-link">私たちのあゆみと理念を詳しく見る</a>
+      </div>
+    </section>
+
+    <section class="cta-area">
+      <h2>まず、ご相談ください</h2>
+      <p>「自分の症状に漢方が合うか分からない」そんなご不安も、受付スタッフへお気軽にどうぞ。</p>
+      <div class="cta-btns">
+        <a href="tel:0352513637" class="btn btn-tel">☎ 電話で予約・お問合せ</a>
+        <a href="https://lin.ee/glFn7qu" class="btn btn-line" target="_blank" rel="noopener noreferrer">📲 LINEでかんたん予約</a>
+      </div>
+      <p style="margin-top:20px;font-size:0.85rem;opacity:0.9">受付時間：火・木・金 10:00〜18:00 ／ 土 9:30〜16:30<br>東京都千代田区有楽町1-2-14 紫ビル4階</p>
+    </section>
+
+    <section class="access-section">
+      <h3 class="access-heading">ACCESS</h3>
+      <div class="access-directions">
+        <p><strong>東京メトロ銀座線</strong> 銀座駅 B3番出口より 徒歩約5分</p>
+        <p><strong>JR山手線</strong> 有楽町駅 京橋口より 徒歩約8分</p>
+        <p><strong>東京メトロ日比谷線</strong> 日比谷駅 A1番出口より 徒歩約7分</p>
+        <p>紫ビル4階にエレベーターでお上がりいただき、正面が受付です。</p>
+      </div>
+      <p class="access-address">〒100-0006 東京都千代田区有楽町1-2-14 紫ビル4階</p>
+      <div class="access-map-wrap">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3240.89!2d139.760!3d35.674!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188bfbd89f700b%3A0x277e49ba33ed038!2z5p2x5Lqs6Zu344O25bKh6aeF!5e0!3m2!1sja!2sjp!4v1640000000" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="細野漢方診療所への地図"></iframe>
+      </div>
+    </section>
+  </main>
+
   <footer class="footer">
     <img src="https://www.hosonokampo.jp/blog/wp-content/uploads/2026/03/葉logo.png" alt="細野漢方診療所" class="footer-logo">
     © Hosono Kampo Clinic. All Rights Reserved.
@@ -945,14 +270,13 @@
   </div>
 
   <script>
-    (function () {
-      var idx = 0;
-      var slides = document.querySelectorAll('.slide');
-      setInterval(function () {
-        slides[idx].classList.remove('active');
-        idx = (idx + 1) % slides.length;
-        slides[idx].classList.add('active');
-      }, 5000);
+    (function(){
+      var i=0,bg=document.querySelectorAll('.vertical-flow-bg');
+      setInterval(function(){
+        bg[i].classList.remove('active');
+        i=(i+1)%bg.length;
+        bg[i].classList.add('active');
+      },5000);
     })();
   </script>
 
