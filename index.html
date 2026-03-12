@@ -27,11 +27,9 @@
     .nav-badges{font-size:0.7rem;color:#6b6154}
     .nav-tel{color:var(--gold);font-weight:700;font-size:1.1rem}
 
-    /* ① ポエム（最小化・黄金比確定・物語の一体感） */
-    .poem{margin-top:64px;padding:40px 24px 8px;text-align:center;font-family:"Yu Mincho","Yu Mincho","Hiragino Mincho ProN","Noto Serif JP","Shippori Mincho",serif;font-size:0.88rem;letter-spacing:0.2em;line-height:1.95;color:var(--deep);opacity:0;animation:poemFade 2s 0.5s forwards}
+    /* ① ポエム（3行・句点なし・PC最適化） */
+    .poem{margin-top:64px;padding:40px 24px 8px;text-align:center;font-family:"Yu Mincho","Yu Mincho","Hiragino Mincho ProN","Noto Serif JP","Shippori Mincho",serif;font-size:0.85rem;letter-spacing:0.4em;line-height:2.2;color:var(--deep);opacity:0;animation:poemFade 2s 0.5s forwards}
     .poem-line{display:block}
-    .poem-line.no-wrap{white-space:nowrap;word-break:keep-all}
-    .poem-mobile{display:none}
     @keyframes poemFade{to{opacity:1}}
 
     /* ② 垂直流動エリア（歴史の舞台・視覚的主役） */
@@ -89,15 +87,15 @@
     .info-body{font-size:0.9rem;color:#4a4238;line-height:2;letter-spacing:0.03em}
 
     .history-section{padding:32px 0}
-    .history-inner{max-width:640px;margin:0 auto;line-height:1.9}
+    .history-inner{max-width:640px;margin:0 auto;line-height:1.9;display:flex!important;flex-direction:column!important;align-items:center!important;text-align:center!important}
     .history-inner>p{font-size:0.95rem;margin:0 0 20px}
     .history-quote{margin:20px 0;padding:20px 24px;border-left:2px solid var(--gold);background:rgba(184,164,126,0.06);font-size:1.05rem;font-weight:700}
     .stats{display:flex;justify-content:center;gap:40px;margin:24px 0}
     .stat-number{font-size:1.6rem;color:var(--gold);display:block}
     .stat-label{font-size:0.8rem;color:#6b6154}
 
-    /* 光の一条：あゆみと理念（1px線＋光の往復） */
-    .ayumi-link{display:inline-block;margin-top:20px;font-size:0.9rem;color:var(--gold);position:relative;padding-bottom:10px;overflow:visible}
+    /* 光の一条：あゆみと理念（1px線＋光の往復・絶対中央揃え） */
+    .ayumi-link{display:inline-block!important;margin:20px auto 0!important;width:fit-content!important;font-size:0.9rem;color:var(--gold);position:relative;padding-bottom:10px;overflow:visible}
     .ayumi-link::after{content:"";position:absolute;bottom:0;left:0;width:100%;height:1px;background:rgba(184,164,126,0.25)}
     .ayumi-link::before{content:"";position:absolute;bottom:0;left:0;width:80px;height:1px;background:linear-gradient(90deg,transparent,rgba(184,164,126,0.95),transparent);z-index:1;animation:lightBeam 2.8s ease-in-out infinite}
     @keyframes lightBeam{0%{left:0;opacity:1}48%{left:calc(100% - 80px);opacity:1}52%{left:calc(100% - 80px);opacity:1}100%{left:0;opacity:1}}
@@ -130,12 +128,8 @@
     @media (max-width:768px){
       .nav{height:auto;padding:12px 16px;flex-wrap:wrap}
       .nav-right{flex:1 1 100%;justify-content:center;padding-top:8px;margin-top:4px}
-      section.poem.poem-pc{display:none!important;visibility:hidden!important;height:0!important;overflow:hidden!important;padding:0!important;margin:0!important}
-      section.poem.poem-mobile{display:block!important;visibility:visible!important;margin-top:56px!important;padding:0!important;text-align:center!important;transform:scale(0.75)!important;transform-origin:center top!important;width:133%!important;left:-16.5%!important;position:relative!important;letter-spacing:0.6em!important;line-height:1.8!important}
-      section.poem.poem-mobile .poem-line{font-size:10px!important;letter-spacing:0.6em!important;line-height:1.8!important;white-space:nowrap!important}
+      .poem{margin-top:60px!important;padding:0!important;transform:scale(0.75)!important;transform-origin:center top!important;width:133%!important;left:-16.5%!important;position:relative!important}
       .vertical-flow{margin-top:-18px!important;height:220px}
-      .history-inner{text-align:center!important;display:flex!important;flex-direction:column!important;align-items:center!important;width:100%!important}
-      .history-inner .ayumi-link{display:inline-block!important;margin:20px auto 0!important;text-align:center!important}
       .ticker-item{font-size:11px;padding:0 20px}
       .main{padding:32px 16px 48px}
       .grid{gap:12px}
@@ -159,19 +153,11 @@
     </div>
   </nav>
 
-  <!-- ① ポエム PC版（端正な改行） -->
-  <section class="poem poem-pc">
-    <span class="poem-line">銀座・有楽町。</span>
-    <span class="poem-line">三代続く漢方専門外来。</span>
-    <span class="poem-line">Since 1928.</span>
-    <span class="poem-line">自由診療だからこそ叶う、</span>
-    <span class="poem-line no-wrap">あなただけのオーダーメイド処方。</span>
-  </section>
-  <!-- ① ポエム スマホ版（究極の3行・句点なし） -->
-  <section class="poem poem-mobile">
+  <!-- ① ポエム（3行・句点なし・全デバイス共通） -->
+  <section class="poem">
     <span class="poem-line">Since 1928</span>
-    <span class="poem-line">銀座・有楽町　三代続く、漢方専門外来</span>
-    <span class="poem-line no-wrap">あなただけのオーダーメイド処方</span>
+    <span class="poem-line">銀座・有楽町　三代続く漢方専門外来</span>
+    <span class="poem-line">あなただけのオーダーメイド処方</span>
   </section>
 
   <!-- ② 垂直流動エリア（歴史の舞台・5枚の貴重な写真） -->
