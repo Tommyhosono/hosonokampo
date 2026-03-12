@@ -30,7 +30,6 @@
     /* ① ポエム（PC=5行・スマホ=3行） */
     .poem{margin-top:64px;padding:40px 24px 8px;text-align:center;font-family:"Yu Mincho","Yu Mincho","Hiragino Mincho ProN","Noto Serif JP","Shippori Mincho",serif;font-size:0.85rem;letter-spacing:0.4em;line-height:2.2;color:var(--deep);opacity:0;animation:poemFade 2s 0.5s forwards}
     .poem-line{display:block}
-    .poem-mobile{display:none}
     @keyframes poemFade{to{opacity:1}}
 
     /* ② 垂直流動エリア（歴史の舞台・視覚的主役） */
@@ -129,9 +128,7 @@
     @media (max-width:768px){
       .nav{height:auto;padding:12px 16px;flex-wrap:wrap}
       .nav-right{flex:1 1 100%;justify-content:center;padding-top:8px;margin-top:4px}
-      .poem-pc{display:none!important;visibility:hidden!important;height:0!important;overflow:hidden!important;padding:0!important;margin:0!important}
-      .poem-mobile{display:block!important;visibility:visible!important;margin-top:60px!important;padding:0!important;transform:scale(0.75)!important;transform-origin:center top!important;width:133%!important;left:-16.5%!important;position:relative!important}
-      .poem-mobile .poem-line{font-size:10px!important;letter-spacing:0.6em!important;line-height:1.8!important}
+      .poem{margin-top:60px!important;padding:12px 16px 8px!important;font-size:0.8rem!important;letter-spacing:0.4em!important;line-height:1.9!important}
       .vertical-flow{margin-top:-18px!important;height:220px}
       .history-inner{display:flex!important;flex-direction:column!important;align-items:center!important;text-align:center!important}
       .ayumi-link{margin:20px auto 0!important;width:fit-content!important;display:inline-block!important}
@@ -158,13 +155,8 @@
     </div>
   </nav>
 
-  <!-- ① ポエム（3行・句読点なし） -->
-  <section class="poem poem-pc">
-    <span class="poem-line">Since 1928</span>
-    <span class="poem-line">銀座・有楽町　三代続く漢方専門外来</span>
-    <span class="poem-line">あなただけのオーダーメイド処方</span>
-  </section>
-  <section class="poem poem-mobile">
+  <!-- ① ポエム（3行・句読点なし・全デバイス共通） -->
+  <section class="poem">
     <span class="poem-line">Since 1928</span>
     <span class="poem-line">銀座・有楽町　三代続く漢方専門外来</span>
     <span class="poem-line">あなただけのオーダーメイド処方</span>
