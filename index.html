@@ -6,7 +6,7 @@
   <title>細野漢方診療所 | 銀座・有楽町 昭和初期より続く自由診療の漢方</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;700&family=Noto+Serif+JP:wght@400;500&display=swap" rel="stylesheet">
   <style>
     /* === Lightning 強制消去（設定無視・必ず効く） === */
     #masthead, #site-header, .site-header, .site-header-container, .page-header,
@@ -78,7 +78,38 @@
     /* 1. リセット */
     *, *::before, *::after { box-sizing: border-box; }
 
-    /* 2. 基本デザイン（アイボリー・真鍮ゴールド） */
+    /* 2. 静寂のファーストビュー */
+    .first-view {
+      margin-top: 80px;
+      padding: 120px 24px;
+      background: var(--ivory);
+      text-align: center;
+      font-family: "Yu Mincho", "Yu Mincho", "Hiragino Mincho ProN", "Noto Serif JP", "Shippori Mincho", serif;
+      font-size: 1.15rem;
+      letter-spacing: 0.15em;
+      line-height: 2.5;
+      color: var(--deep);
+    }
+
+    .first-view-line {
+      display: block;
+    }
+
+    /* 2.5. 視覚の奔流（写真スライドプレースホルダー） */
+    .visual-flow {
+      width: 100%;
+      min-height: 420px;
+      background: rgba(44, 35, 24, 0.06);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #8a7f72;
+      font-family: "Yu Mincho", "Yu Mincho", "Hiragino Mincho ProN", serif;
+      font-size: 0.9rem;
+      letter-spacing: 0.2em;
+    }
+
+    /* 3. 基本デザイン（アイボリー・真鍮ゴールド） */
     :root {
       --gold: #b8a47e;
       --ivory: #fdfcf0;
@@ -780,6 +811,14 @@
 </head>
 <body>
 
+  <section class="first-view">
+    <span class="first-view-line">銀座・有楽町。三代続く漢方専門外来。</span>
+    <span class="first-view-line">Since 1928.</span>
+    <span class="first-view-line">自由診療だからこそ叶う、あなただけのオーダーメイド処方。</span>
+  </section>
+
+  <div class="visual-flow" aria-label="写真スライドエリア">ここに歴史が流れる</div>
+
   <nav class="nav">
     <a href="https://www.hosonokampo.jp/" class="nav-brand">
       <img src="https://www.hosonokampo.jp/blog/wp-content/uploads/2026/03/細野logo.png" alt="細野漢方診療所" class="nav-logo">
@@ -806,23 +845,6 @@
   <section class="msg-section">
     <h3>医師による深い診察と、薬剤師によるきめ細やかなサポート</h3>
     <p>当診療所では、<strong>医師による診察</strong>を軸に、2名の漢方専門薬剤師が常駐する体制を整えております。お薬のことはもちろん、<strong>日常のちょっとした体調の変化</strong>や「こんなこと聞いてもいいのかしら」と思うような些細な不安も、どうぞお気軽にご相談ください。</p>
-  </section>
-
-  <section class="ticker-wrap" aria-label="診療日誌">
-    <div class="ticker-track">
-      <a href="https://www.hosonokampo.jp/blog/2022/08/16/%e8%83%83%e3%82%82%e3%81%9f%e3%82%8c%e3%81%aa%e3%81%a9%e3%80%81%e8%83%83%e3%81%ae%e4%b8%8d%e5%85%b7%e5%90%88%e3%81%ab%e4%bd%bf%e3%81%86%e6%bc%a2%e6%96%b9%e8%96%ac%e3%81%af%e7%a8%ae%e9%a1%9e%e3%81%8c/" class="ticker-item">胃もたれなど、胃の不具合に使う漢方薬は種類が多すぎて迷います！</a>
-      <a href="https://www.hosonokampo.jp/blog/2023/02/14/%e5%a5%b3%e6%80%a7%e7%b3%bb%e3%81%ae%e6%9c%89%e5%90%8d%e5%87%a6%e6%96%b9%e3%80%81%e5%bd%93%e5%b8%b0%e8%8a%8d%e8%96%ac%e6%95%a3%e3%81%8b%e5%8a%a0%e5%91%b3%e9%80%8d%e9%81%99%e6%95%a3%e3%81%a9%e3%81%a1/" class="ticker-item">女性系の有名処方、当帰芍薬散か加味逍遙散どちらを買おうか…</a>
-      <a href="https://www.hosonokampo.jp/blog/2023/09/05/%e6%a1%82%e6%9e%9d%e8%8c%af%e8%8b%93%e4%b8%b8%e3%81%a8%e5%bd%93%e5%b8%b0%e8%8a%8d%e8%96%ac%e6%95%a3%e3%81%ae%e9%81%95%e3%81%84%e3%80%81%e5%89%8d%e5%9b%9e%e3%81%ae%e8%a8%98%e4%ba%8b%e3%81%ab%e5%8f%8d/" class="ticker-item">桂枝茯苓丸と当帰芍薬散の違い、反響がかなりあったので！</a>
-      <a href="https://www.hosonokampo.jp/blog/2022/07/29/%e3%81%82%e3%81%ae%e5%bd%93%e5%b8%b0%e8%8a%8d%e8%96%ac%e6%95%a3%ef%bc%88%e3%81%a8%e3%81%86%e3%81%8d%e3%81%97%e3%82%83%e3%81%8f%e3%82%84%e3%81%8f%e3%81%95%e3%82%93%ef%bc%89%e3%82%82%e4%ba%94%e8%8b%93/" class="ticker-item">あの当帰芍薬散も五苓散の生薬が基本です</a>
-      <a href="https://www.hosonokampo.jp/blog/2023/04/11/%e5%a6%8a%e5%a9%a6%e3%81%95%e3%82%93%e3%81%ae%e5%9f%ba%e6%9c%ac%e5%87%a6%e6%96%b9%e3%83%bb%e5%bd%93%e5%b8%b0%e8%8a%8d%e8%96%ac%e6%95%a3%e3%81%a8%e5%a6%8a%e5%a8%a0%e4%b8%ad%ef%bc%88%e5%a6%8a%e5%a8%a0/" class="ticker-item">妊婦さんの基本処方・当帰芍薬散と妊娠中の漢方薬は違う？？</a>
-      <a href="https://www.hosonokampo.jp/blog/2023/06/13/%e6%b0%97%e5%88%86%e3%81%8c%e6%82%aa%e3%81%8f%e3%81%a6%ef%bc%88%e8%87%aa%e5%be%8b%e7%a5%9e%e7%b5%8c%e7%9a%84%e3%81%ab%e3%82%82%e4%b8%8d%e5%ae%89%e5%ae%9a%ef%bc%89%e9%a3%9f%e6%ac%b2%e3%82%82%e3%81%aa/" class="ticker-item">気分が悪くて食欲もない！柴芍六君子湯と六君子湯の大きな違い</a>
-      <a href="https://www.hosonokampo.jp/blog/2022/08/16/%e8%83%83%e3%82%82%e3%81%9f%e3%82%8c%e3%81%aa%e3%81%a9%e3%80%81%e8%83%83%e3%81%ae%e4%b8%8d%e5%85%b7%e5%90%88%e3%81%ab%e4%bd%bf%e3%81%86%e6%bc%a2%e6%96%b9%e8%96%ac%e3%81%af%e7%a8%ae%e9%a1%9e%e3%81%8c/" class="ticker-item">胃もたれなど、胃の不具合に使う漢方薬は種類が多すぎて迷います！</a>
-      <a href="https://www.hosonokampo.jp/blog/2023/02/14/%e5%a5%b3%e6%80%a7%e7%b3%bb%e3%81%ae%e6%9c%89%e5%90%8d%e5%87%a6%e6%96%b9%e3%80%81%e5%bd%93%e5%b8%b0%e8%8a%8d%e8%96%ac%e6%95%a3%e3%81%8b%e5%8a%a0%e5%91%b3%e9%80%8d%e9%81%99%e6%95%a3%e3%81%a9%e3%81%a1/" class="ticker-item">女性系の有名処方、当帰芍薬散か加味逍遙散どちらを買おうか…</a>
-      <a href="https://www.hosonokampo.jp/blog/2023/09/05/%e6%a1%82%e6%9e%9d%e8%8c%af%e8%8b%93%e4%b8%b8%e3%81%a8%e5%bd%93%e5%b8%b0%e8%8a%8d%e8%96%ac%e6%95%a3%e3%81%ae%e9%81%95%e3%81%84%e3%80%81%e5%89%8d%e5%9b%9e%e3%81%ae%e8%a8%98%e4%ba%8b%e3%81%ab%e5%8f%8d/" class="ticker-item">桂枝茯苓丸と当帰芍薬散の違い、反響がかなりあったので！</a>
-      <a href="https://www.hosonokampo.jp/blog/2022/07/29/%e3%81%82%e3%81%ae%e5%bd%93%e5%b8%b0%e8%8a%8d%e8%96%ac%e6%95%a3%ef%bc%88%e3%81%a8%e3%81%86%e3%81%8d%e3%81%97%e3%82%83%e3%81%8f%e3%82%84%e3%81%8f%e3%81%95%e3%82%93%ef%bc%89%e3%82%82%e4%ba%94%e8%8b%93/" class="ticker-item">あの当帰芍薬散も五苓散の生薬が基本です</a>
-      <a href="https://www.hosonokampo.jp/blog/2023/04/11/%e5%a6%8a%e5%a9%a6%e3%81%95%e3%82%93%e3%81%ae%e5%9f%ba%e6%9c%ac%e5%87%a6%e6%96%b9%e3%83%bb%e5%bd%93%e5%b8%b0%e8%8a%8d%e8%96%ac%e6%95%a3%e3%81%a8%e5%a6%8a%e5%a8%a0%e4%b8%ad%ef%bc%88%e5%a6%8a%e5%a8%a0/" class="ticker-item">妊婦さんの基本処方・当帰芍薬散と妊娠中の漢方薬は違う？？</a>
-      <a href="https://www.hosonokampo.jp/blog/2023/06/13/%e6%b0%97%e5%88%86%e3%81%8c%e6%82%aa%e3%81%8f%e3%81%a6%ef%bc%88%e8%87%aa%e5%be%8b%e7%a5%9e%e7%b5%8c%e7%9a%84%e3%81%ab%e3%82%82%e4%b8%8d%e5%ae%89%e5%ae%9a%ef%bc%89%e9%a3%9f%e6%ac%b2%e3%82%82%e3%81%aa/" class="ticker-item">気分が悪くて食欲もない！柴芍六君子湯と六君子湯の大きな違い</a>
-    </div>
   </section>
 
   <section class="box-section">
@@ -895,6 +917,23 @@
     </div>
   </section>
 
+  <section class="ticker-wrap" aria-label="診療日誌">
+    <div class="ticker-track">
+      <a href="https://www.hosonokampo.jp/blog/2022/08/16/%e8%83%83%e3%82%82%e3%81%9f%e3%82%8c%e3%81%aa%e3%81%a9%e3%80%81%e8%83%83%e3%81%ae%e4%b8%8d%e5%85%b7%e5%90%88%e3%81%ab%e4%bd%bf%e3%81%86%e6%bc%a2%e6%96%b9%e8%96%ac%e3%81%af%e7%a8%ae%e9%a1%9e%e3%81%8c/" class="ticker-item">胃もたれなど、胃の不具合に使う漢方薬は種類が多すぎて迷います！</a>
+      <a href="https://www.hosonokampo.jp/blog/2023/02/14/%e5%a5%b3%e6%80%a7%e7%b3%bb%e3%81%ae%e6%9c%89%e5%90%8d%e5%87%a6%e6%96%b9%e3%80%81%e5%bd%93%e5%b8%b0%e8%8a%8d%e8%96%ac%e6%95%a3%e3%81%8b%e5%8a%a0%e5%91%b3%e9%80%8d%e9%81%99%e6%95%a3%e3%81%a9%e3%81%a1/" class="ticker-item">女性系の有名処方、当帰芍薬散か加味逍遙散どちらを買おうか…</a>
+      <a href="https://www.hosonokampo.jp/blog/2023/09/05/%e6%a1%82%e6%9e%9d%e8%8c%af%e8%8b%93%e4%b8%b8%e3%81%a8%e5%bd%93%e5%b8%b0%e8%8a%8d%e8%96%ac%e6%95%a3%e3%81%ae%e9%81%95%e3%81%84%e3%80%81%e5%89%8d%e5%9b%9e%e3%81%ae%e8%a8%98%e4%ba%8b%e3%81%ab%e5%8f%8d/" class="ticker-item">桂枝茯苓丸と当帰芍薬散の違い、反響がかなりあったので！</a>
+      <a href="https://www.hosonokampo.jp/blog/2022/07/29/%e3%81%82%e3%81%ae%e5%bd%93%e5%b8%b0%e8%8a%8d%e8%96%ac%e6%95%a3%ef%bc%88%e3%81%a8%e3%81%86%e3%81%8d%e3%81%97%e3%82%83%e3%81%8f%e3%82%84%e3%81%8f%e3%81%95%e3%82%93%ef%bc%89%e3%82%82%e4%ba%94%e8%8b%93/" class="ticker-item">あの当帰芍薬散も五苓散の生薬が基本です</a>
+      <a href="https://www.hosonokampo.jp/blog/2023/04/11/%e5%a6%8a%e5%a9%a6%e3%81%95%e3%82%93%e3%81%ae%e5%9f%ba%e6%9c%ac%e5%87%a6%e6%96%b9%e3%83%bb%e5%bd%93%e5%b8%b0%e8%8a%8d%e8%96%ac%e6%95%a3%e3%81%a8%e5%a6%8a%e5%a8%a0%e4%b8%ad%ef%bc%88%e5%a6%8a%e5%a8%a0/" class="ticker-item">妊婦さんの基本処方・当帰芍薬散と妊娠中の漢方薬は違う？？</a>
+      <a href="https://www.hosonokampo.jp/blog/2023/06/13/%e6%b0%97%e5%88%86%e3%81%8c%e6%82%aa%e3%81%8f%e3%81%a6%ef%bc%88%e8%87%aa%e5%be%8b%e7%a5%9e%e7%b5%8c%e7%9a%84%e3%81%ab%e3%82%82%e4%b8%8d%e5%ae%89%e5%ae%9a%ef%bc%89%e9%a3%9f%e6%ac%b2%e3%82%82%e3%81%aa/" class="ticker-item">気分が悪くて食欲もない！柴芍六君子湯と六君子湯の大きな違い</a>
+      <a href="https://www.hosonokampo.jp/blog/2022/08/16/%e8%83%83%e3%82%82%e3%81%9f%e3%82%8c%e3%81%aa%e3%81%a9%e3%80%81%e8%83%83%e3%81%ae%e4%b8%8d%e5%85%b7%e5%90%88%e3%81%ab%e4%bd%bf%e3%81%86%e6%bc%a2%e6%96%b9%e8%96%ac%e3%81%af%e7%a8%ae%e9%a1%9e%e3%81%8c/" class="ticker-item">胃もたれなど、胃の不具合に使う漢方薬は種類が多すぎて迷います！</a>
+      <a href="https://www.hosonokampo.jp/blog/2023/02/14/%e5%a5%b3%e6%80%a7%e7%b3%bb%e3%81%ae%e6%9c%89%e5%90%8d%e5%87%a6%e6%96%b9%e3%80%81%e5%bd%93%e5%b8%b0%e8%8a%8d%e8%96%ac%e6%95%a3%e3%81%8b%e5%8a%a0%e5%91%b3%e9%80%8d%e9%81%99%e6%95%a3%e3%81%a9%e3%81%a1/" class="ticker-item">女性系の有名処方、当帰芍薬散か加味逍遙散どちらを買おうか…</a>
+      <a href="https://www.hosonokampo.jp/blog/2023/09/05/%e6%a1%82%e6%9e%9d%e8%8c%af%e8%8b%93%e4%b8%b8%e3%81%a8%e5%bd%93%e5%b8%b0%e8%8a%8d%e8%96%ac%e6%95%a3%e3%81%ae%e9%81%95%e3%81%84%e3%80%81%e5%89%8d%e5%9b%9e%e3%81%ae%e8%a8%98%e4%ba%8b%e3%81%ab%e5%8f%8d/" class="ticker-item">桂枝茯苓丸と当帰芍薬散の違い、反響がかなりあったので！</a>
+      <a href="https://www.hosonokampo.jp/blog/2022/07/29/%e3%81%82%e3%81%ae%e5%bd%93%e5%b8%b0%e8%8a%8d%e8%96%ac%e6%95%a3%ef%bc%88%e3%81%a8%e3%81%86%e3%81%8d%e3%81%97%e3%82%83%e3%81%8f%e3%82%84%e3%81%8f%e3%81%95%e3%82%93%ef%bc%89%e3%82%82%e4%ba%94%e8%8b%93/" class="ticker-item">あの当帰芍薬散も五苓散の生薬が基本です</a>
+      <a href="https://www.hosonokampo.jp/blog/2023/04/11/%e5%a6%8a%e5%a9%a6%e3%81%95%e3%82%93%e3%81%ae%e5%9f%ba%e6%9c%ac%e5%87%a6%e6%96%b9%e3%83%bb%e5%bd%93%e5%b8%b0%e8%8a%8d%e8%96%ac%e6%95%a3%e3%81%a8%e5%a6%8a%e5%a8%a0%e4%b8%ad%ef%bc%88%e5%a6%8a%e5%a8%a0/" class="ticker-item">妊婦さんの基本処方・当帰芍薬散と妊娠中の漢方薬は違う？？</a>
+      <a href="https://www.hosonokampo.jp/blog/2023/06/13/%e6%b0%97%e5%88%86%e3%81%8c%e6%82%aa%e3%81%8f%e3%81%a6%ef%bc%88%e8%87%aa%e5%be%8b%e7%a5%9e%e7%b5%8c%e7%9a%84%e3%81%ab%e3%82%82%e4%b8%8d%e5%ae%89%e5%ae%9a%ef%bc%89%e9%a3%9f%e6%ac%b2%e3%82%82%e3%81%aa/" class="ticker-item">気分が悪くて食欲もない！柴芍六君子湯と六君子湯の大きな違い</a>
+    </div>
+  </section>
+
   <footer class="footer">
     <img src="https://www.hosonokampo.jp/blog/wp-content/uploads/2026/03/葉logo.png" alt="細野漢方診療所" class="footer-logo">
     © Hosono Kampo Clinic. All Rights Reserved.
@@ -916,6 +955,11 @@
       }, 5000);
     })();
   </script>
+
+  <!--
+--------------------------------------------------
+--------------------------------------------------
+-->
 
 </body>
 </html>
